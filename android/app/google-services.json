@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "64809633568",
+    "project_id": "prestige-6e5a2",
+    "storage_bucket": "prestige-6e5a2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64809633568:android:8d7f64b286f629ba937945",
+        "android_client_info": {
+          "package_name": "com.example.prestig"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgeEW7HZ9i_F3CphagwJJHvkgrXx_LbS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
