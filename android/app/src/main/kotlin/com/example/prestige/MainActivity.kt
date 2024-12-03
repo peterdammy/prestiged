@@ -1,4 +1,4 @@
-package com.example.prestige
+package com.example.prestig
 
 import io.flutter.embedding.android.FlutterActivity
 
