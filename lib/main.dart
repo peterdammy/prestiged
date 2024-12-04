@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:prestige/firebase_options.dart';
 import 'package:prestige/views/screens/onboard.dart';
+import 'package:prestige/views/widgets/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,10 +21,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
-      home: Onboard(),
+      themeMode: ThemeMode.system,
+      theme: AppTheme.lightMode,
+      darkTheme: AppTheme.darkMode,
+      home: const Onboard(),
     );
   }
 }

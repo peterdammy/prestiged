@@ -68,8 +68,8 @@ flutter:
     - family: Roobert
       fonts:
         - asset: assets/font/roobertfont.otf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+        - asset: assets/font/roobertheavy.otf
+          weight: 900
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
