@@ -6,13 +6,13 @@ class AppTextTheme {
 
   static const TextTheme lightMode = TextTheme(
     bodyLarge: TextStyle(
-      fontSize: 24,
+      fontSize: 28,
       fontFamily: 'Roobert',
       fontWeight: FontWeight.w900,
       color: AppColor.background2,
     ),
     bodyMedium: TextStyle(
-      fontSize: 14,
+      fontSize: 16,
       fontFamily: 'Roobert',
       fontWeight: FontWeight.w400,
       color: AppColor.background2,
