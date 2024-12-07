@@ -7,4 +7,5 @@ class AppColor {
   static const oColor2 = Color(0xFFDC221A);
   static const oColor3 = Color(0xFF0093DD);
   static const buttonColor = Color(0xFF2196F3);
+  static const containerColor = Color(0xFFD9DBE9);
 }
