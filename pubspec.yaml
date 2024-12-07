@@ -69,7 +69,7 @@ flutter:
   fonts:
     - family: Roobert
       fonts:
-        - asset: assets/font/roobertfont.otf
+        - asset: assets/font/roobertlight.otf
         - asset: assets/font/roobertheavy.otf
           weight: 900
   #   - family: Trajan Pro
