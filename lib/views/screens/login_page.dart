@@ -18,26 +18,43 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
             Text(
               "Login",
               style: AppTextTheme.lightMode.bodyLarge,
             ),
-            const Spacer(),
-            Row(
+            const SizedBox(height: 24),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SocialContainer(
                   imagePath: "assets/images/Facebook.png",
                   containerText: "Facebook",
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: 16),
                 SocialContainer(
                   imagePath: "assets/images/Google.png",
                   containerText: "Google",
                 ),
               ],
+            ),
+            const SizedBox(height: 24),
+            TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: AppColor.containerColor,
+                hintText: "Email Address",
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                  borderSide: BorderSide.none,
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                  borderSide: BorderSide.none,
+                ),
+              ),
             ),
           ],
         ),
