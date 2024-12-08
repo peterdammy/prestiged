@@ -21,7 +21,7 @@ class AppTextTheme {
       fontSize: 16,
       fontFamily: 'Roobert',
       fontWeight: FontWeight.w700,
-      color: AppColor.background2,
+      color: AppColor.darkerGrey,
     ),
   );
 

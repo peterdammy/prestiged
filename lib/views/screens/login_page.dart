@@ -3,6 +3,8 @@ import 'package:prestige/views/widgets/colors.dart';
 import 'package:prestige/views/widgets/social_container.dart';
 import 'package:prestige/views/widgets/text_theme.dart';
 
+import '../widgets/app_textfield.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -33,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   imagePath: "assets/images/Facebook.png",
                   containerText: "Facebook",
                 ),
-                SizedBox(width: 16),
+                SizedBox(width: 20),
                 SocialContainer(
                   imagePath: "assets/images/Google.png",
                   containerText: "Google",
@@ -41,20 +43,18 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             const SizedBox(height: 24),
-            TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: AppColor.containerColor,
-                hintText: "Email Address",
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(24),
-                  borderSide: BorderSide.none,
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(24),
-                  borderSide: BorderSide.none,
-                ),
-              ),
+            const AppTextfield(
+              isFilled: true,
+              hintT: 'Email Address',
+              labelT: 'Email Address',
+              obscureT: false,
+            ),
+            const SizedBox(height: 16),
+            const AppTextfield(
+              isFilled: true,
+              hintT: "Password",
+              labelT: "Password",
+              obscureT: true,
             ),
           ],
         ),
