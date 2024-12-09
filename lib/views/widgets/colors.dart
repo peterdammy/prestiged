@@ -9,4 +9,5 @@ class AppColor {
   static const buttonColor = Color(0xFF2196F3);
   static const containerColor = Color(0xFFD9DBE9);
   static const darkerGrey = Color(0xFFA0A3BD);
+  static const iconColor = Color(0xFF130F26);
 }

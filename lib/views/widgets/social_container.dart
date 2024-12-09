@@ -15,7 +15,7 @@ class SocialContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 56,
-      width: 156,
+      width: 164,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           border: Border.all(

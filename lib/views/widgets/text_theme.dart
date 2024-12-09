@@ -11,6 +11,18 @@ class AppTextTheme {
       fontWeight: FontWeight.w900,
       color: AppColor.background2,
     ),
+    displayMedium: TextStyle(
+      fontSize: 16,
+      fontFamily: 'Roobert',
+      fontWeight: FontWeight.w700,
+      color: AppColor.background2,
+    ),
+    displaySmall: TextStyle(
+      fontSize: 16,
+      fontFamily: 'Roobert',
+      fontWeight: FontWeight.w700,
+      color: AppColor.buttonColor,
+    ),
     bodyMedium: TextStyle(
       fontSize: 16,
       fontFamily: 'Roobert',
@@ -31,6 +43,18 @@ class AppTextTheme {
       fontFamily: 'Roobert',
       fontWeight: FontWeight.w900,
       color: AppColor.background1,
+    ),
+    displayMedium: TextStyle(
+      fontSize: 16,
+      fontFamily: 'Roobert',
+      fontWeight: FontWeight.w700,
+      color: AppColor.background1,
+    ),
+    displaySmall: TextStyle(
+      fontSize: 16,
+      fontFamily: 'Roobert',
+      fontWeight: FontWeight.w700,
+      color: AppColor.buttonColor,
     ),
     bodyMedium: TextStyle(
       fontSize: 14,
