@@ -19,10 +19,18 @@ class ProgressButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 56,
-        width: MediaQuery.of(context).size.width,
+        width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: AppColor.buttonColor,
+          boxShadow: const [
+            BoxShadow(
+              color: AppColor.buttonColor,
+              spreadRadius: 0,
+              blurRadius: 16,
+              offset: Offset(0, 8), // changes position of shadow
+            ),
+          ],
         ),
         child: Center(
           child: Padding(

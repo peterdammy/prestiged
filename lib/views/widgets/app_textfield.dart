@@ -9,6 +9,7 @@ class AppTextfield extends StatefulWidget {
   final String labelT;
   final bool obscureT;
   final Widget? suffixI;
+  final TextInputType? keyboardT;
   const AppTextfield({
     super.key,
     required this.isFilled,
@@ -17,6 +18,7 @@ class AppTextfield extends StatefulWidget {
     required this.obscureT,
     this.suffixI,
     required this.ttextFieldController,
+    this.keyboardT,
   });
 
   @override
@@ -27,6 +29,7 @@ class _AppTextfieldState extends State<AppTextfield> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      keyboardType: widget.keyboardT,
       style: const TextStyle(
         color: AppColor.background2,
       ),

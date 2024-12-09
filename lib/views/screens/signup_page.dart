@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:prestige/views/screens/signup_page.dart';
-import 'package:prestige/views/widgets/colors.dart';
-import 'package:prestige/views/widgets/progress_button.dart';
-import 'package:prestige/views/widgets/social_container.dart';
-import 'package:prestige/views/widgets/text_theme.dart';
+
+import 'package:prestige/views/screens/login_page.dart';
 
 import '../widgets/app_textfield.dart';
+import '../widgets/colors.dart';
+import '../widgets/progress_button.dart';
+import '../widgets/social_container.dart';
+import '../widgets/text_theme.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpPageState extends State<SignUpPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   bool obscureT = false;
@@ -37,11 +37,16 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
+            Image.asset(
+              "assets/images/PrestigeLogo.png",
+              fit: BoxFit.cover,
+            ),
+            const SizedBox(height: 60),
             Text(
-              "Login",
+              "Create Account",
               style: AppTextTheme.lightMode.bodyLarge,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -57,6 +62,23 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             const SizedBox(height: 24),
+            AppTextfield(
+              keyboardT: const TextInputType.numberWithOptions(),
+              isFilled: true,
+              hintT: 'Agent Code',
+              labelT: 'Agent Code',
+              obscureT: false,
+              ttextFieldController: emailController,
+            ),
+            const SizedBox(height: 16),
+            AppTextfield(
+              isFilled: true,
+              hintT: 'Username',
+              labelT: 'Username',
+              obscureT: false,
+              ttextFieldController: emailController,
+            ),
+            const SizedBox(height: 16),
             AppTextfield(
               isFilled: true,
               hintT: 'Email Address',
@@ -84,31 +106,17 @@ class _LoginScreenState extends State<LoginScreen> {
               obscureT: true,
               ttextFieldController: passwordController,
             ),
-            const SizedBox(height: 20),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: GestureDetector(
-                child: Text(
-                  "Forgot Password",
-                  style: AppTextTheme.lightMode.bodyMedium,
-                ),
-              ),
-            ),
-            const SizedBox(height: 24),
-            ProgressButton(onTap: () {}, hintText: "Login"),
-            const Spacer(),
-            GestureDetector(
+            const SizedBox(height: 36),
+            ProgressButton(
               onTap: () {},
-              child: SvgPicture.asset(
-                "assets/icon/fingerprint.svg",
-              ),
+              hintText: "Continue",
             ),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Don't have an account yet?",
+                  "Already have an Account",
                   style: AppTextTheme.lightMode.bodyMedium,
                 ),
                 const SizedBox(width: 6),
@@ -117,17 +125,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const SignUpPage(),
+                        builder: (context) => const LoginScreen(),
                       ),
                     );
                   },
                   child: Text(
-                    "Create Account",
+                    "Login",
                     style: AppTextTheme.lightMode.displaySmall,
                   ),
                 ),
               ],
-            )
+            ),
+            const Spacer()
           ],
         ),
       ),
