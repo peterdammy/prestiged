@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:prestige/views/screens/login_page.dart';
+import 'package:prestige/views/screens/personal_info.dart';
 
 import '../widgets/app_textfield.dart';
 import '../widgets/colors.dart';
@@ -108,7 +109,14 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             const SizedBox(height: 36),
             ProgressButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PersonalInfo(),
+                  ),
+                );
+              },
               hintText: "Continue",
             ),
             const Spacer(),
