@@ -4,7 +4,7 @@ import 'package:prestige/views/widgets/colors.dart';
 class AppTextTheme {
   AppTextTheme._();
 
-  static const TextTheme lightMode = TextTheme(
+  static TextTheme lightMode = const TextTheme(
     bodyLarge: TextStyle(
       fontSize: 28,
       fontFamily: 'Roobert',
@@ -35,6 +35,7 @@ class AppTextTheme {
       fontWeight: FontWeight.w700,
       color: AppColor.darkerGrey,
     ),
+    displayLarge: TextStyle(color: AppColor.cColor),
   );
 
   static const TextTheme darkMode = TextTheme(

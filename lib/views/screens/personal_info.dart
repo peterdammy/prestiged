@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prestige/views/widgets/colors.dart';
+import 'package:prestige/views/widgets/dropdown_widget.dart';
 import 'package:prestige/views/widgets/progress_button.dart';
 import 'package:prestige/views/widgets/text_theme.dart';
 
@@ -31,7 +32,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                   top: 6.0, right: 16, bottom: 6, left: 16),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColor.darkerGrey,
+                  backgroundColor: AppColor.skipButtonColor,
                 ),
                 onPressed: () {},
                 child: Padding(
@@ -39,7 +40,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       top: 6.0, right: 16, bottom: 6, left: 16),
                   child: Text(
                     "skip",
-                    style: AppTextTheme.lightMode.bodyMedium,
+                    style: AppTextTheme.darkMode.bodyMedium,
                   ),
                 ),
               ),
@@ -62,6 +63,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                 style: AppTextTheme.lightMode.bodyMedium,
               ),
               const SizedBox(height: 16),
+              const DropdownWidget(),
               const Spacer(),
               ProgressButton(onTap: () {}, hintText: "Continue"),
             ],
