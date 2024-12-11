@@ -33,7 +33,8 @@ class _DropdownWidgetState extends State<DropdownWidget> {
                   style: AppTextTheme.lightMode.bodyMedium,
                 ), // Placeholder
                 icon: const SizedBox.shrink(), // Remove default dropdown arrow
-                style: AppTextTheme.lightMode.displayLarge,
+                style: AppTextTheme.lightMode.bodyMedium,
+                dropdownColor: AppColor.containerColor,
                 onChanged: (String? newOptions) {
                   setState(() {
                     dropDownOptions = newOptions;
