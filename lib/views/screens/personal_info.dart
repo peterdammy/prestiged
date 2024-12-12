@@ -1,5 +1,5 @@
-import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:prestige/views/widgets/colors.dart';
 
 import 'package:prestige/views/widgets/dropdown_widget.dart';
@@ -14,7 +14,6 @@ class PersonalInfo extends StatefulWidget {
 }
 
 class _PersonalInfoState extends State<PersonalInfo> {
-  Country country = CountryParser.parseCountryCode("NIG");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,19 +68,29 @@ class _PersonalInfoState extends State<PersonalInfo> {
             const SizedBox(height: 16),
             const DropdownWidget(),
             const SizedBox(height: 16),
-            TextFormField(
-              decoration: InputDecoration(
-                prefixIcon: Text(
-                  "${country.flagEmoji}+ ${country.countryCode}",
-                  style: AppTextTheme.lightMode.bodySmall,
-                ),
-                filled: true,
-                fillColor: AppColor.cColor,
-                suffixIcon: const Icon(
-                  Icons.keyboard_arrow_down,
+            Container(
+              height: 56,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: AppColor.cColor,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.all(4.0),
+                child: IntlPhoneField(
+                  keyboardType: TextInputType.numberWithOptions(),
+                  cursorHeight: 2.0,
+                  cursorColor: AppColor.background2,
+                  decoration: InputDecoration(
+                    hintText: "0xxxxx0000",
+                    filled: true,
+                    fillColor: AppColor.cColor,
+                  ),
+                  initialCountryCode: "NG",
                 ),
               ),
             ),
+            const Spacer(),
             ProgressButton(onTap: () {}, hintText: "Continue"),
           ],
         ),
