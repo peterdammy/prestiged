@@ -25,15 +25,13 @@ class _CountryDropdownState extends State<CountryDropdown> {
       ),
       child: TextFormField(
         decoration: InputDecoration(
-          prefixIcon: Container(
-            child: Text(
-              "${country.flagEmoji}+ ${country.countryCode}",
-              style: AppTextTheme.lightMode.bodySmall,
-            ),
+          prefixIcon: Text(
+            "${country.flagEmoji}+ ${country.countryCode}",
+            style: AppTextTheme.lightMode.bodySmall,
           ),
           filled: true,
           fillColor: AppColor.cColor,
-          suffixIcon: Icon(
+          suffixIcon: const Icon(
             Icons.keyboard_arrow_down,
           ),
         ),

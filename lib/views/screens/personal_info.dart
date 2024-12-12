@@ -1,6 +1,7 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:prestige/views/widgets/colors.dart';
-import 'package:prestige/views/widgets/country_dropdown.dart';
+
 import 'package:prestige/views/widgets/dropdown_widget.dart';
 import 'package:prestige/views/widgets/progress_button.dart';
 import 'package:prestige/views/widgets/text_theme.dart';
@@ -13,6 +14,7 @@ class PersonalInfo extends StatefulWidget {
 }
 
 class _PersonalInfoState extends State<PersonalInfo> {
+  Country country = CountryParser.parseCountryCode("NIG");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +53,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
+          mainAxisSize: MainAxisSize.max,
           children: [
             Text(
               "Personal Information",
@@ -66,8 +69,19 @@ class _PersonalInfoState extends State<PersonalInfo> {
             const SizedBox(height: 16),
             const DropdownWidget(),
             const SizedBox(height: 16),
-            const CountryDropdown(),
-            const Spacer(), // Use Spacer here as it is part of a Column
+            TextFormField(
+              decoration: InputDecoration(
+                prefixIcon: Text(
+                  "${country.flagEmoji}+ ${country.countryCode}",
+                  style: AppTextTheme.lightMode.bodySmall,
+                ),
+                filled: true,
+                fillColor: AppColor.cColor,
+                suffixIcon: const Icon(
+                  Icons.keyboard_arrow_down,
+                ),
+              ),
+            ),
             ProgressButton(onTap: () {}, hintText: "Continue"),
           ],
         ),
