@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:prestige/views/screens/bank_acct.dart';
 import 'package:prestige/views/widgets/colors.dart';
 
 import 'package:prestige/views/widgets/dropdown_widget.dart';
+import 'package:prestige/views/widgets/font.dart';
 import 'package:prestige/views/widgets/progress_button.dart';
 import 'package:prestige/views/widgets/text_theme.dart';
 
@@ -68,30 +70,55 @@ class _PersonalInfoState extends State<PersonalInfo> {
             const SizedBox(height: 16),
             const DropdownWidget(),
             const SizedBox(height: 16),
-            Container(
-              height: 56,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: AppColor.cColor,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: const Padding(
-                padding: EdgeInsets.all(4.0),
-                child: IntlPhoneField(
-                  keyboardType: TextInputType.numberWithOptions(),
-                  cursorHeight: 2.0,
-                  cursorColor: AppColor.background2,
-                  decoration: InputDecoration(
-                    hintText: "0xxxxx0000",
-                    filled: true,
-                    fillColor: AppColor.cColor,
+            const IntlPhoneField(
+              keyboardType: TextInputType.numberWithOptions(),
+              cursorHeight: 19.0,
+              cursorColor: AppColor.background2,
+              decoration: InputDecoration(
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 19, vertical: 19),
+                hintText: "0xxxxx0000",
+                filled: true,
+                fillColor: AppColor.cColor,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(16),
                   ),
-                  initialCountryCode: "NG",
+                ),
+              ),
+              initialCountryCode: "NG",
+            ),
+            const SizedBox(height: 16),
+            const TextField(
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 64,
+                  horizontal: 12,
+                ),
+                hintText: "Address",
+                hintStyle: AppText.bodyText,
+                filled: true,
+                fillColor: AppColor.cColor,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(16),
+                  ),
                 ),
               ),
             ),
             const Spacer(),
-            ProgressButton(onTap: () {}, hintText: "Continue"),
+            ProgressButton(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BankAcct(),
+                    ),
+                  );
+                },
+                hintText: "Continue"),
           ],
         ),
       ),
