@@ -39,7 +39,7 @@ class _AppTextfieldState extends State<AppTextfield> {
         suffixIcon: widget.suffixI,
         suffixIconColor: AppColor.iconColor,
         filled: widget.isFilled,
-        fillColor: AppColor.containerColor,
+        fillColor: AppColor.cColor,
         hintText: widget.hintT,
         hintStyle: AppTextTheme.lightMode.bodyMedium,
         labelText: widget.labelT,
