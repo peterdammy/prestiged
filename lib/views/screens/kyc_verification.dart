@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:prestige/views/screens/verify_code.dart';
 import 'package:prestige/views/widgets/app_textfield.dart';
 import 'package:prestige/views/widgets/colors.dart';
+import 'package:prestige/views/widgets/progress_button.dart';
 import 'package:prestige/views/widgets/text_theme.dart';
 
 class KYCUploadPage extends StatefulWidget {
@@ -14,44 +16,44 @@ class KYCUploadPage extends StatefulWidget {
 
 class _KYCUploadPageState extends State<KYCUploadPage> {
   final ninController = TextEditingController();
-  String? uploadedFileName; // Store file name
-  bool isLoading = false; // Control loading state
+  // String? uploadedFileName; // Store file name
+  // bool isLoading = false; // Control loading state
 
-  // Function to handle file picking
-  Future<void> _pickFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles();
+  // // Function to handle file picking
+  // Future<void> _pickFile() async {
+  //   FilePickerResult? result = await FilePicker.platform.pickFiles();
 
-    if (result != null) {
-      setState(() {
-        uploadedFileName = result.files.single.name; // Get file name
-      });
-    }
-  }
+  //   if (result != null) {
+  //     setState(() {
+  //       uploadedFileName = result.files.single.name; // Get file name
+  //     });
+  //   }
+  // }
 
-  // Function to simulate verification process
-  Future<void> _verifyDocument() async {
-    if (uploadedFileName == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Please upload a file first.")),
-      );
-      return;
-    }
+  // // Function to simulate verification process
+  // Future<void> _verifyDocument() async {
+  //   if (uploadedFileName == null) {
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       const SnackBar(content: Text("Please upload a file first.")),
+  //     );
+  //     return;
+  //   }
 
-    setState(() {
-      isLoading = true; // Show progress indicator
-    });
+  //   setState(() {
+  //     isLoading = true; // Show progress indicator
+  //   });
 
-    await Future.delayed(
-        const Duration(seconds: 3)); // Simulated delay for verification
+  //   await Future.delayed(
+  //       const Duration(seconds: 3)); // Simulated delay for verification
 
-    setState(() {
-      isLoading = false; // Stop loading
-    });
+  //   setState(() {
+  //     isLoading = false; // Stop loading
+  //   });
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Document Verified Successfully!")),
-    );
-  }
+  //   ScaffoldMessenger.of(context).showSnackBar(
+  //     const SnackBar(content: Text("Document Verified Successfully!")),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +112,8 @@ class _KYCUploadPageState extends State<KYCUploadPage> {
               ),
               const SizedBox(height: 32),
               GestureDetector(
-                onTap: _pickFile,
+                onTap: () {},
+                // onTap: _pickFile,
                 child: Container(
                   height: 135,
                   width: double.infinity,
@@ -119,27 +122,37 @@ class _KYCUploadPageState extends State<KYCUploadPage> {
                     color: AppColor.cColor,
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: uploadedFileName == null
-                      ? Column(
-                          children: [
-                            SvgPicture.asset("assets/icon/Upload.svg"),
-                            const SizedBox(height: 8),
-                            Text(
-                              "Upload Your NIN Document",
-                              style: AppTextTheme.lightMode.bodySmall,
-                            ),
-                          ],
-                        )
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              uploadedFileName!,
-                              style: const TextStyle(color: Colors.black),
-                            ),
-                            const Icon(Icons.check_circle, color: Colors.green),
-                          ],
-                        ),
+                  child: Column(
+                    children: [
+                      SvgPicture.asset("assets/icon/Upload.svg"),
+                      const SizedBox(height: 8),
+                      Text(
+                        "Upload Your NIN Document",
+                        style: AppTextTheme.lightMode.bodySmall,
+                      ),
+                    ],
+                  ),
+                  // child: uploadedFileName == null
+                  //     ? Column(
+                  //         children: [
+                  //           SvgPicture.asset("assets/icon/Upload.svg"),
+                  //           const SizedBox(height: 8),
+                  //           Text(
+                  //             "Upload Your NIN Document",
+                  //             style: AppTextTheme.lightMode.bodySmall,
+                  //           ),
+                  //         ],
+                  //       )
+                  //     : Row(
+                  //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //         children: [
+                  //           Text(
+                  //             uploadedFileName!,
+                  //             style: const TextStyle(color: Colors.black),
+                  //           ),
+                  //           const Icon(Icons.check_circle, color: Colors.green),
+                  //         ],
+                  //       ),
                 ),
               ),
               const SizedBox(height: 24),
@@ -149,31 +162,43 @@ class _KYCUploadPageState extends State<KYCUploadPage> {
                 labelT: "NIN Number",
                 obscureT: false,
                 ttextFieldController: ninController,
+                keyboardT: const TextInputType.numberWithOptions(),
               ),
               const Spacer(),
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: isLoading ? null : _verifyDocument,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    disabledBackgroundColor: Colors.blue.withOpacity(0.5),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+              ProgressButton(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const VerifyCode(),
                     ),
-                  ),
-                  child: isLoading
-                      ? const CircularProgressIndicator(
-                          color: Colors.white,
-                        )
-                      : const Text(
-                          "Verify Document",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        ),
-                ),
+                  );
+                },
+                hintText: "Verify Document",
               ),
-              const SizedBox(height: 24),
+              // SizedBox(
+              //   width: double.infinity,
+              //   height: 50,
+              //   child: ElevatedButton(
+              //     onPressed: isLoading ? null : _verifyDocument,
+              //     style: ElevatedButton.styleFrom(
+              //       backgroundColor: Colors.blue,
+              //       disabledBackgroundColor: Colors.blue.withOpacity(0.5),
+              //       shape: RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.circular(8),
+              //       ),
+              //     ),
+              //     child: isLoading
+              //         ? const CircularProgressIndicator(
+              //             color: Colors.white,
+              //           )
+              //         : const Text(
+              //             "Verify Document",
+              //             style: TextStyle(color: Colors.white, fontSize: 16),
+              //           ),
+              //   ),
+              // ),
+              const Spacer(),
             ],
           ),
         ),
