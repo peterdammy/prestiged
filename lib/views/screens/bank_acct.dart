@@ -94,7 +94,7 @@ class _BankAcctState extends State<BankAcct> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const KycVerification(),
+                      builder: (context) => const KYCUploadPage(),
                     ),
                   );
                 },
