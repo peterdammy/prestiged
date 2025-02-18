@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:prestige/views/screens/verify_code.dart';
 import 'package:prestige/views/widgets/app_textfield.dart';
